@@ -28,9 +28,16 @@ class App extends Component {
       number,
     };
 
-    this.setState(({ contacts }) => ({
-      contacts: [...contacts, contact],
-    }));
+    const { contacts } = this.state;
+    const checkName = contacts.some(contact =>
+      contact.name.toLowerCase().includes(name)
+    );
+
+    checkName
+      ? alert(`${contact.name} is already in contacts`)
+      : this.setState(({ contacts }) => ({
+          contacts: [...contacts, contact],
+        }));
   };
 
   changeFilter = event => {
