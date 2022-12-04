@@ -31,8 +31,9 @@ class App extends Component {
     };
 
     const { contacts } = this.state;
+    const normalizedName = name.toLowerCase();
     const checkName = contacts.some(contact =>
-      contact.name.toLowerCase().includes(name)
+      contact.name.toLowerCase().includes(normalizedName)
     );
 
     checkName
