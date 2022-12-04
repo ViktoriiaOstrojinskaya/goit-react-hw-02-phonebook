@@ -1,4 +1,4 @@
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Form, FormInput, ButtonAddContact } from './ContactForm.styled';
 
@@ -58,7 +58,7 @@ class ContactForm extends Component {
 
 export default ContactForm;
 
-// ContactForm.propTypes = {
-//   name: PropTypes.element.isRequired,
-//   number: PropTypes.element.isRequired,
-// };
+ContactForm.propTypes = {
+  name: PropTypes.string,
+  number: PropTypes.number,
+};
