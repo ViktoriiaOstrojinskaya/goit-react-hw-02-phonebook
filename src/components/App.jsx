@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import ContactForm from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
+import { Title } from './Title/Title';
+import { Box } from './App.styled';
 
 class App extends Component {
   state = {
@@ -56,21 +58,17 @@ class App extends Component {
     const { filter } = this.state;
     const filterContacts = this.filterName();
     return (
-      <div
-        style={{
-          height: '100vh',
-        }}
-      >
-        <h2>Phonebook</h2>
+      <Box>
+        <Title title="Phonebook" />
         <ContactForm onSubmit={this.addNewContact} />
 
-        <h2>Contacts</h2>
+        <Title title="Contacts" />
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactList
           contacts={filterContacts}
           onDeleteContact={this.deleteContact}
         />
-      </div>
+      </Box>
     );
   }
 }

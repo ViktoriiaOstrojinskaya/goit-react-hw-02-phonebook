@@ -1,5 +1,6 @@
-//import { nanoid } from 'nanoid';
+//import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Form, FormInput, ButtonAddContact } from './ContactForm.styled';
 
 class ContactForm extends Component {
   state = {
@@ -21,10 +22,10 @@ class ContactForm extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
         <label>
           Name
-          <input
+          <FormInput
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -37,7 +38,7 @@ class ContactForm extends Component {
 
         <label>
           Number
-          <input
+          <FormInput
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -47,12 +48,17 @@ class ContactForm extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <button type="submit" onSubmit={this.addNewContact}>
+        <ButtonAddContact type="submit" onSubmit={this.addNewContact}>
           Add contact
-        </button>
-      </form>
+        </ButtonAddContact>
+      </Form>
     );
   }
 }
 
 export default ContactForm;
+
+// ContactForm.propTypes = {
+//   name: PropTypes.element.isRequired,
+//   number: PropTypes.element.isRequired,
+// };
